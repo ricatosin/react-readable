@@ -27,7 +27,10 @@ git clone https://github.com/ricatosin/react-readable
 
 cd api-server 
 
+
 ```
+To Run the API USE !
+
 yarn install
 yarn start
 ```
@@ -35,16 +38,19 @@ yarn start
 or
 
 ```
+To Run the API USE !
+
 npm install
 npm start
 ```
-to Run the API !
+
 
 cd react-readable
 ```
 
 Then install dependencies and run:
 
+To Run the APP USE 
 ```
 yarn install
 yarn start
@@ -52,11 +58,12 @@ yarn start
 
 or
 
+To Run the APP USE 
 ```
 npm install
 npm run start
 ```
-To run the APP !
+
 
 ## Versions
 
