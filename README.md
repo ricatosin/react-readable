@@ -1,22 +1,72 @@
-# Readable API Server
+[![REACT nanodegree](https://img.shields.io/badge/udacity-REACTND-02b3e4.svg?style=flat)](https://www.udacity.com/course/react-nanodegree--nd019)
 
-This is the starter project for the final assessment project for Udacity's Redux course where you will build a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments.
+This project is my implementation of Readable app which is the final assessment project for the
+Udacity's React Fundamentals course, part of the [React Nanodegree Program].
 
-This repository includes the code for the backend API Server that you'll use to develop and interact with the front-end portion of the project.
+Readable is a app that allows the user to create posts comments score comments and so on !
 
-## Start Developing
+## Getting Started
 
-To get started developing right away:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-* Install and start the API server
-    - `cd api-server`
-    - `npm install`
-    - `node server`
-* In another terminal window, use Create React App to scaffold out the front-end
-    - `create-react-app frontend`
-    - `cd frontend`
-    - `npm start`
+### Prerequisites
 
-## API Server
+The project can be built with npm or yarn, so choose one of the approach bellow in case you don't have any installed on your system.
 
-Information about the API server and how to use it can be found in its [README file](api-server/README.md).
+* **Npm** is distributed with Node.js which means that when you download Node.js, you automatically get npm installed on your computer. [Download Node.js](https://nodejs.org/en/download/)
+
+* **Yarn** is a package manager built by Facebook Team and seems to be faster than npm in general.  [Download Yarn](https://yarnpkg.com/en/docs/install)
+
+### Installing
+
+To download the project follow the instructions bellow:
+
+```
+git clone https://github.com/ricatosin/react-readable
+
+
+cd api-server 
+
+```
+yarn install
+yarn start
+```
+
+or
+
+```
+npm install
+npm start
+```
+to Run the API !
+
+cd react-readable
+```
+
+Then install dependencies and run:
+
+```
+yarn install
+yarn start
+```
+
+or
+
+```
+npm install
+npm run start
+```
+To run the APP !
+
+## Versions
+
+v1.0
+* Default project implementation
+
+## Authors
+
+Ricardo Tosin 
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
