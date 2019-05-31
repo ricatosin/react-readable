@@ -12,7 +12,7 @@ import CommentCard from './CommentCard';
 class Post extends Component {
 
   componentDidMount() {
-    this.props.fetchComments(this.props.postid);
+    this.props.getPost(this.props.match.params.id)
     this.props.getComment(this.props.match.params.id)
   }
   onPostDelete = () => {
