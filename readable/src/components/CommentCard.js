@@ -1,3 +1,14 @@
+import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
+import './App.css';
+import './CommentCard.css';
+import {Jumbotron, Button, Col, Row} from 'react-bootstrap'
+import {FaThumbsUp, FaThumbsDown} from 'react-icons/fa'
+import formatTimeStamp from '../utils/helpers'
+import { voteComment, deleteCurrentComment } from '../actions/commentActions';
+import { updateCommentCount } from '../actions/postActions'
+
 class CommentCard extends Component {
     onCommentDelete = () => {
         this.props.deleteCurrentComment(this.props.comment.id)
@@ -46,5 +57,4 @@ class CommentCard extends Component {
     }
   }
  
-  
 export default connect(null, mapDispatchToProps)(CommentCard)

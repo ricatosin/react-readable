@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import Post from './Post'
-import Header from './Header';
-import SortBar from './SortBar'
-import sortBy from 'sort-by'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import './App.css';
+import './PostDetail.css';
+import {Button} from 'react-bootstrap'
 import { connect } from 'react-redux'
-import {Link} from 'react-router-dom'
-import { Glyphicon } from 'react-bootstrap'
-import {fetchComments} from '../actions'
-import Comment from './Comment'
+import { fetchAllCommentsForPost } from '../actions/commentActions'
+import { fetchPost, deleteCurrentPost } from '../actions/postActions'
+import PostCard from './PostCard';
+import CommentCard from './CommentCard';
 
 class Post extends Component {
 
@@ -22,7 +22,6 @@ class Post extends Component {
   }
   render() {
     const { post, comments } = this.props
-    
     return post ? (
       <div className="PostDetail" className='container'>
       <br/>
