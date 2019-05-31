@@ -9,13 +9,45 @@ import { Glyphicon } from 'react-bootstrap'
 import {fetchComments} from '../actions'
 import Comment from './Comment'
 
-class PostDetail extends Component {
+class Post extends Component {
 
   componentDidMount() {
     this.props.fetchComments(this.props.postid);
+    this.props.getComment(this.props.match.params.id)
+  }
+  onPostDelete = () => {
+    const id = this.props.match.params.id
+    this.props.deleteCurrentPost(id)
+    this.props.history.push('/')
   }
   render() {
- 
+    const { post, comments } = this.props
+    
+    return post ? (
+      <div className="PostDetail" className='container'>
+      <br/>
+      <PostCard postId={post.id} post={post} score={post.voteScore}/>
+      <Link to={`/${post.category}/${post.id}/editPost`}>
+        <Button className="edit_post_btn" bsStyle="link">Editar</Button>
+      </Link>
+      <Button className="remove_post_btn" bsStyle="link" onClick={() => this.onPostDelete()}>Excluir</Button>
+      <Link to={`/${post.category}/${post.id}/addComment`}>
+        <Button className="comment_post_btn" >Comentar</Button>
+      </Link>
+      
+        {comments ? comments.map((comment) => {
+        return (
+            <CommentCard comment={comment} postId={post.id} key={comment.id}/>
+        )
+        }) : '' }
+      </div>
+    ) : 
+    (
+      <div className="container">
+         <h2 className="text_center">Error 404</h2> 
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = ({ posts, comments }, ownProps) => {
