@@ -27,11 +27,11 @@ class Post extends Component {
       <br/>
       <PostCard postId={post.id} post={post} score={post.voteScore}/>
       <Link to={`/${post.category}/${post.id}/editPost`}>
-        <Button className="edit_post_btn" bsStyle="link">Editar</Button>
+        <Button className="edit_post_btn" bsStyle="link">Edit</Button>
       </Link>
-      <Button className="remove_post_btn" bsStyle="link" onClick={() => this.onPostDelete()}>Excluir</Button>
+      <Button className="remove_post_btn" bsStyle="link" onClick={() => this.onPostDelete()}>Delete</Button>
       <Link to={`/${post.category}/${post.id}/addComment`}>
-        <Button className="comment_post_btn" >Comentar</Button>
+        <Button className="comment_post_btn" >Add Comment</Button>
       </Link>
       
         {comments ? comments.map((comment) => {

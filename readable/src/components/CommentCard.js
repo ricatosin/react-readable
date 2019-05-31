@@ -5,8 +5,10 @@ import './App.css'
 import {Jumbotron, Button, Col, Row} from 'react-bootstrap'
 import {FaThumbsUp, FaThumbsDown} from 'react-icons/fa'
 import formatTimeStamp from '../utils/helpers'
-import { voteComment, deleteCurrentComment } from '../actions/commentActions';
+import { voteComment, deleteCurrentComment } from '../actions/commentActions'
 import { updateCommentCount } from '../actions/postActions'
+import './CommentCard.css'
+
 
 class CommentCard extends Component {
     onCommentDelete = () => {
