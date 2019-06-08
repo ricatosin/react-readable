@@ -12,7 +12,7 @@ import './App.css';
 const App = () => (
   <BrowserRouter>
     <div>
-      <Header title="Readable - Ricardo Tosin" />
+      <Header title="Readable" />
       <Switch>
         <Route exact path="/" component={AllPosts} />
         <Route exact path="/new" component={NewPost} />

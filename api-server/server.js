@@ -316,13 +316,13 @@ app.delete('/api/comments/:id', (req, res) => {
 if (process.env.NODE_ENV === 'production') {
     // Express will serve up production assets
     // like our main.js file, or main.css file
-    app.use(express.static('frontend/build'))
+    app.use(express.static('readable/build'))
 
     // Express will serve up the index.html file
     // if doesn't recognize the route
     const path = require('path')
     app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, '../frontend', 'build', 'index.html'))
+      res.sendFile(path.resolve(__dirname, '../readable', 'build', 'index.html'))
     })
   }
 
