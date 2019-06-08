@@ -38,7 +38,7 @@ node serve
 or
 
 ```
-To Run the API USE in main folder /react-redable !
+To Run the API in main folder /react-redable !
 
 
 npm install
@@ -62,7 +62,7 @@ or
 To Run the APP USE 
 ```
 npm install
-npm run start
+npm start
 ```
 
 
