@@ -1,115 +1,155 @@
-
-const api = "http://localhost:3001"
-
-
-// Generate a unique token
-let token = localStorage.token
-if (!token)
-  token = localStorage.token = Math.random().toString(36).substr(-8)
+import axios from 'axios';
+import uuidV1 from 'uuid/v1';
 
 const headers = {
-  'Accept': 'application/json',
-  'Authorization': token,
-  'Content-Type': 'application/json'
+  Accept: 'application/json',
+  Authorization: 'ReadableJay',
+};
+
+export async function getAllCategories() {
+  const res = await axios.get(`/api/categories`, { headers });
+  return res.data.categories;
 }
 
-//Get all of the categories available for the app
-export const getCategories = () =>
-  fetch(`${api}/categories`, { headers })
-    .then(res => res.json())
-    .then(data => data.categories)
+export async function getPostsByCategory(category) {
+  const res = await axios.get(`/api/${category}/posts`, { headers });
+  return res.data;
+}
 
-//Get all of the posts for a particular category.
-export const getPostsInCategory = (category) =>
-  fetch(`${api}/${category}/posts`, { headers })
-    .then(res => res.json())
-    .then(data => data)
-
-//Get all of the posts. No category selected.
-export const getPosts = () =>
-  fetch(`${api}/posts`, { headers })
-    .then(res => res.json())
-    .then(data => data)
-
-//Add a new post.
-export const addPost = (newPost) =>
-  fetch(`${api}/posts`, {
-    method: 'POST',
-    headers: {
-        ...headers
+export async function upVoteToPost(id) {
+  const res = await axios.post(
+    `/api/posts/${id}`,
+    {
+      option: 'upVote',
     },
-    body: JSON.stringify(newPost)
-  }).then(res => res.json())
+    { headers }
+  );
 
-//Get specific post
-export const getPost = (postId) =>
-  fetch(`${api}/posts/${postId}`, { headers })
-      .then(res => res.json())
+  return res.data;
+}
 
-//Vote on a post
-export const voteOnPost = (postId, option) =>
-    fetch(`${api}/posts/${postId}`, {
-    method: 'POST',
-    headers: {
-        ...headers
+export async function downVoteToPost(id) {
+  const res = await axios.post(
+    `/api/posts/${id}`,
+    {
+      option: 'downVote',
     },
-    body: JSON.stringify({option: option})
-    }).then(res => res.json())
+    { headers }
+  );
 
-//Edit the details of an existing post
-export const editPost = (postId, title, body) =>
-  fetch(`${api}/posts/${postId}`, {
-    method: 'PUT',
-    headers: headers,
-    body: JSON.stringify({ title, body})
-  }).then(res => res.json())
+  return res.data;
+}
 
-  //Sets the deleted flag for a post to 'true'. Sets the parentDeleted flag for all child comments to 'true'
-export const deletePost = (postId) =>
-fetch(`${api}/posts/${postId}`, {
-  method: 'DELETE',
-  headers: headers
-}).then(res => res.json())
-.then(data => data)
+export async function upVoteToComment(id) {
+  const res = await axios.post(
+    `/api/comments/${id}`,
+    {
+      option: 'upVote',
+    },
+    { headers }
+  );
 
-//Get all the comments for a single post
-export const getCommentsForPost = (postId) =>
-fetch(`${api}/posts/${postId}/comments`, { headers })
-  .then(res => res.json())
-  .then(data => data)
+  return res.data;
+}
 
-//Add a comment to a post
-export const addComment = (comment) =>
-fetch(`${api}/comments`, {
-  method: 'POST',
-  headers: headers,
-  body: JSON.stringify(comment)
-}).then(res => res.json())
+export async function downVoteToComment(id) {
+  const res = await axios.post(
+    `/api/comments/${id}`,
+    {
+      option: 'downVote',
+    },
+    { headers }
+  );
 
-//Get specific comment
-export const getComment = (commentId) =>
-fetch(`${api}/comments/${commentId}`, { headers })
-    .then(res => res.json())
+  return res.data;
+}
 
-//Vote on a comment
-export const voteOnComment = (commentId, option) =>
-  fetch(`${api}/comments/${commentId}`, {
-  method: 'POST',
-  headers: headers,
-  body: JSON.stringify({ option })
-  }).then(res => res.json())
+export async function addPost({ category, title, body, author }) {
+  const id = uuidV1();
+  const timestamp = Date.now();
+  const res = await axios.post(
+    `/api/posts`,
+    {
+      id,
+      timestamp,
+      title,
+      body,
+      author,
+      category,
+    },
+    { headers }
+  );
 
-//Edit the details of an existing comment
-export const editComment = (commentId, body) =>
-fetch(`${api}/comments/${commentId}`, {
-  method: 'PUT',
-  headers: headers,
-  body: JSON.stringify({timestamp:Date.now(), body})
-}).then(res => res.json())
+  return res.data;
+}
 
-//Sets a comment's deleted flag to true
-export const deleteComment = (commentId) =>
-fetch(`${api}/comments/${commentId}`, {
-  method: 'DELETE',
-  headers: headers
-}).then(res => res.json())
+export async function deletePost(id) {
+  const res = await axios.delete(`/api/posts/${id}`, { headers });
+
+  return res.data;
+}
+
+export async function getPostByPostId(id) {
+  const res = await axios.get(`/api/posts/${id}`, { headers });
+
+  return res.data;
+}
+
+export async function editPostByPostId({ id, title, body }) {
+  const res = await axios.put(
+    `/api/posts/${id}`,
+    {
+      title,
+      body,
+    },
+    { headers }
+  );
+
+  return res.data;
+}
+
+export async function getAllCommentsByPostId(id) {
+  const res = await axios.get(`/api/posts/${id}/comments`, {
+    headers,
+  });
+
+  return res.data;
+}
+
+export async function deleteComment(id) {
+  const res = await axios.delete(`/api/comments/${id}`, { headers });
+
+  return res.data;
+}
+
+export async function addComment({ body, author, parentId }) {
+  const id = uuidV1();
+  const timestamp = Date.now();
+  const res = await axios.post(
+    `/api/comments`,
+    {
+      id,
+      timestamp,
+      body,
+      author,
+      parentId,
+    },
+    { headers }
+  );
+
+  return res.data;
+}
+
+export async function editComment({ id, body }) {
+  const timestamp = Date.now();
+  const res = await axios.put(
+    `/api/comments/${id}`,
+    {
+      body,
+      timestamp,
+    },
+    { headers }
+  );
+
+  return res.data;
+}
