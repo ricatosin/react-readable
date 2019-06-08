@@ -6,9 +6,9 @@ html {
 body {
   font-size: 1.8rem;
   line-height: 1.618;
-  max-width: 38em;
+  max-width: 60rem;
   margin: auto;
-  color: #4a4a4a;
+  color:blue;
   background-color: #f9f9f9;
   padding: 13px;
 }
@@ -68,7 +68,6 @@ h6 {
 }
 
 .post {
-  border: 1px dashed #ff5138;
   margin: 10px;
   padding: 30px;
 }
@@ -78,7 +77,7 @@ h6 {
 }
 
 .post a.h2 {
-  color: #ff5138;
+  color: blue;
 }
 
 .post a:hover, .post a:active {

@@ -25,20 +25,21 @@ To download the project follow the instructions bellow:
 git clone https://github.com/ricatosin/react-readable
 
 
-cd api-server 
-
-
 ```
 To Run the API USE !
 
-yarn install
-yarn start
+cd api-server
+
+npm install
+node serve
+
 ```
 
 or
 
 ```
-To Run the API USE !
+To Run the API USE in main folder /react-redable !
+
 
 npm install
 npm start
