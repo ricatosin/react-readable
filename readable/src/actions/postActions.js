@@ -85,4 +85,5 @@ export const fetchAllPosts = () => dispatch => (
     }
   }
 
-  export const updateCommentCount = (postId) => dispatch => dispatch({ type: UPDATE_COMMENT_COUNT, postId })
+
+  export const updateCommentCount = (postId) => dispatch  => dispatch({ type: UPDATE_COMMENT_COUNT, postId })
