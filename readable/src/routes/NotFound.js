@@ -20,7 +20,7 @@ const bg = {
   height: '100vh',
   backgroundSize: 'cover',
   mixBlendMode: 'overlay',
-  backgroundImage: 'url(http://i.giphy.com/l117HrgEinjIA.gif)',
+  backgroundImage: 'url(https://media.giphy.com/media/xTiN0L7EW5trfOvEk0/giphy.gif)',
 };
 
 const code = {

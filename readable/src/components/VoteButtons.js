@@ -4,8 +4,11 @@ import VoteButton from './VoteButton';
 
 const VoteButtons = ({ voteUp, voteDown }) => (
   <div className="d-flex">
+    <h6>Rate :
+    
     <VoteButton clickHandler={voteUp} />
     <VoteButton clickHandler={voteDown} btnClass="btn btn-outline-secondary" iconClass="fa fa-thumbs-o-down" />
+    </h6>
   </div>
 );
 
