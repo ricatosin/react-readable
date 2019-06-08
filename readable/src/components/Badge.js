@@ -13,9 +13,10 @@ const Badge = ({ label, badgeColor, disabled, voteCount }) => {
   );
 };
 
+
 Badge.defaultProps = {
   label: '',
-  badgeColor: 'badge-primary',
+  badgeColor: 'badge-pill',
   disabled: true,
   voteCount: undefined,
 };

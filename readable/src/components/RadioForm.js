@@ -26,6 +26,8 @@ class RadioForm extends Component {
       ))
     );
 
+      
+
     return (
       <div>
         <div>{label}</div>
