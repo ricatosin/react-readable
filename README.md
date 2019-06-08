@@ -40,13 +40,13 @@ or
 ```
 To Run the API in main folder /react-redable !
 
-
+```
 npm install
 npm start
 ```
 
 
-cd react-readable
+cd readable
 ```
 
 Then install dependencies and run:
